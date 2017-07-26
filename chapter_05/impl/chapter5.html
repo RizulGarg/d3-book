@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../../d3.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		d3.select("body").append("p").text("New Paragraph");
+		var body = d3.select("body");
+		var p = body.append("p");
+		p.text("Same new paragraph! without chaining");
+
+		var dataset;
+
+		var rowConverter = function(d) {
+			return {
+					ID: d.id,  //No conversion
+					Name: d.name,
+					MenusAppeared: parseInt(d.menus_appeared),
+					TimesAppeared: parseInt(d.times_appeared),
+					FirstAppeared: parseInt(d.first_appeared),
+					lastAppeared: parseInt(d.last_appeared),
+					LowestPrice: parseFloat(d.lowest_price),
+					HighestPrice: parseFloat(d.highest_price),
+					};
+		}
+
+
+		d3.csv("../../Datasets/NYPL Menu/Dish-Clean.csv",rowConverter,function(error,data) {
+			if(error){
+				console.log(error);
+			}else{
+				dataset = data;
+				console.log(data);
+			}
+    	
+		});
+
+		dataset = [1,2,3,4,5];
+		// two already created, 3 go in enter
+
+		d3.select("body").selectAll("p")
+						 .data(dataset).enter()
+						 .append("p").text(function(d) { return "I can count up to " + d; })
+						 .style("color", function(d) {
+    							if (d < 4) {   //Threshold of 15
+        								return "red";
+    								} else {
+        								return "black";
+    								}
+					     });
+	</script>
+</body>
+</html>
