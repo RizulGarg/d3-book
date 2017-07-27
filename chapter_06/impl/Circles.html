@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SVG</title>
+    <script type="text/javascript" src="../../d3.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    var w = 800;
+    var h = 100;
+    var dataset = [5, 10, 15, 20, 25];
+    var svg = d3.select("body").append("svg")
+        .attr("height", h)
+        .attr("width", w);
+    var circle = svg.selectAll("circle").data(dataset).enter().append("circle");
+    circle.attr("cx", function (d, i) {
+        return (i * 25) + 30;
+    })
+        .attr("cy", h / 2)
+        .attr("r", function (d) {
+            return d * 0.7;
+        })
+        .attr("fill", "yellow")
+        .attr("stroke", "orange")
+        .attr("stroke-width", function (d) {
+            return d / 2.0;
+        });
+</script>
+</body>
+</html>
