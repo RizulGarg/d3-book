@@ -57,14 +57,14 @@
 	```javascript
 
 	d3.select("body").selectAll("p")
-						 .data(dataset).enter()
-						 .append("p").text(function(d) { return "I can count up to " + d; })
-						 .style("color", function(d) {
-    							if (d < 4) {   //Threshold of 15
+					.data(dataset).enter()
+					.append("p").text(function(d) { return "I can count up to " + d; })
+					.style("color", function(d) {
+    						if (d < 4) {   //Threshold of 15
         								return "red";
     								} else {
         								return "black";
     								}
-					     });
+					 });
 	```
 	
