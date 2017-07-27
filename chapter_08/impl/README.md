@@ -7,7 +7,6 @@ d3.axisBottom
 d3.axisLeft
 d3.axisRight // Ticks on right
 ```
-d3.axisTop, d3.axisBottom, d3.axisLeft, and d3.axisRight
 
 - Take `scale` as a parameter 
 
@@ -28,6 +27,8 @@ svg.append("g")
     .call(xAxis);
 
 ```
+
+D3’s `call()` function takes the incoming selection, as received from the prior link in the chain, and hands that selection off to any function. 
 
 - Use CSS to style; note svg attributes differ from CSS ones
 
