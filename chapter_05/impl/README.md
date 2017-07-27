@@ -2,7 +2,8 @@
 
 - Use `d3.csv()`
 
-	```
+	```javascript
+	
 	var dataset;  //Declare global var
 
      d3.csv("food.csv", function(data) {
@@ -13,10 +14,10 @@
 
     //Call some other functions that
     //generate your visualization, e.g.:
-    generateVisualization();
-    makeAwesomeCharts();
-    makeEvenAwesomerCharts();
-    thankAwardsCommittee();
+    //generateVisualization();
+    //makeAwesomeCharts();
+    //makeEvenAwesomerCharts();
+    //thankAwardsCommittee();
 
     });
 
@@ -24,7 +25,8 @@
 
 - `d3.select()` - creates placeholders for empty selections ( more data points than selections )
 - Create a preProcessing function for data
-	```
+	```javascript
+	
 	var rowConverter = function(d) {
 			return {
 					ID: d.id,  //No conversion
@@ -52,7 +54,7 @@
 	```
 - Chain methods 
 	
-	```
+	```javascript
 
 	d3.select("body").selectAll("p")
 						 .data(dataset).enter()
